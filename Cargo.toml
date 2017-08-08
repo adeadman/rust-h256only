@@ -1,7 +1,7 @@
 [package]
 name = "h256only"
-version = "0.4.0"
-authors = ["Aaron Deadman <aaron@introspection.net.au","Michael Yang <mikkyangg@gmail.com>"]
+version = "0.4.1"
+authors = ["Aaron Deadman <aaron@introspection.net.au>","Michael Yang <mikkyangg@gmail.com>"]
 description = "Web token library based on rust-jwt with support only for HMACSHA256"
 documentation = "http://mikkyang.github.io/rust-jwt/doc/jwt/index.html"
 homepage = "http://github.com/adeadman/rust-h256only"
