@@ -1,10 +1,16 @@
-# JWT
+# H256Only
 
-[![crates.io](http://meritbadge.herokuapp.com/jwt)](https://crates.io/crates/jwt)
+[![crates.io](http://meritbadge.herokuapp.com/h256only)](https://crates.io/crates/h256only)
 
-A JSON Web Token library.
+A Web Token library forked from [rust-jwt](https://github.com/mikkyang/rust-jwt)
 
-[Documentation](http://mikkyang.github.io/rust-jwt/doc/jwt/index.html)
+Inspired by the [h256only go library](https://github.com/kevinburke/h256only).
+
+For more information on this rationale, please read [Kevin Burke's article on
+JWT](https://kev.inburke.com/kevin/things-to-use-instead-of-jwt/?github)
+
+For usage documentation, please see the original JWT
+[Documentation](http://mikkyang.github.io/rust-jwt/doc/jwt/index.html).
 
 ## Usage
 
