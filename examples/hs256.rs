@@ -1,9 +1,7 @@
-extern crate crypto;
-extern crate jwt;
+extern crate h256only;
 
 use std::default::Default;
-use crypto::sha2::Sha256;
-use jwt::{
+use h256only::{
     Header,
     Registered,
     Token,
@@ -23,13 +21,13 @@ fn new_token(user_id: &str, password: &str) -> Option<String> {
     };
     let token = Token::new(header, claims);
 
-    token.signed(b"secret_key", Sha256::new()).ok()
+    token.signed(b"secret_key").ok()
 }
 
 fn login(token: &str) -> Option<String> {
     let token = Token::<Header, Registered>::parse(token).unwrap();
 
-    if token.verify(b"secret_key", Sha256::new()) {
+    if token.verify(b"secret_key") {
         token.claims.sub
     } else {
         None

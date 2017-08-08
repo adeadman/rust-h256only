@@ -1,13 +1,13 @@
 [package]
-name = "jwt"
+name = "h256only"
 version = "0.4.0"
-authors = ["Michael Yang <mikkyangg@gmail.com>"]
-description = "JSON Web Token library"
+authors = ["Aaron Deadman <aaron@introspection.net.au","Michael Yang <mikkyangg@gmail.com>"]
+description = "Web token library based on rust-jwt with support only for HMACSHA256"
 documentation = "http://mikkyang.github.io/rust-jwt/doc/jwt/index.html"
 homepage = "http://github.com/mikkyang/rust-jwt"
 repository = "http://github.com/mikkyang/rust-jwt"
 readme = "README.md"
-keywords = ["JWT", "token", "web"]
+keywords = ["JWT", "token", "web", "h256only"]
 license = "MIT"
 
 [dependencies]

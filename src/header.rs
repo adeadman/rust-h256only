@@ -4,26 +4,20 @@ use std::default::Default;
 pub struct Header {
     pub typ: Option<HeaderType>,
     pub kid: Option<String>,
-    pub alg: Algorithm,
 }
 
 
 #[derive(Debug, PartialEq, RustcDecodable, RustcEncodable)]
+#[allow(non_camel_case_types)]
 pub enum HeaderType {
-    JWT,
-}
-
-#[derive(Debug, PartialEq, RustcDecodable, RustcEncodable)]
-pub enum Algorithm {
-    HS256, RS256,
+    h256only,
 }
 
 impl Default for Header {
     fn default() -> Header {
         Header {
-            typ: Some(HeaderType::JWT),
+            typ: Some(HeaderType::h256only),
             kid: None,
-            alg: Algorithm::HS256,
         }
     }
 }
@@ -32,25 +26,22 @@ impl Default for Header {
 mod tests {
     use Component;
     use header::{
-        Algorithm,
         Header,
         HeaderType,
     };
 
     #[test]
     fn from_base64() {
-        let enc = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9";
+        let enc = "eyJ0eXAiOiJoMjU2b25seSJ9";
         let header = Header::from_base64(enc).unwrap();
 
-        assert_eq!(header.typ.unwrap(), HeaderType::JWT);
-        assert_eq!(header.alg, Algorithm::HS256);
+        assert_eq!(header.typ.unwrap(), HeaderType::h256only);
 
 
-        let enc = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjFLU0YzZyJ9";
+        let enc = "eyJraWQiOiIxS1NGM2cifQ==";
         let header = Header::from_base64(enc).unwrap();
 
         assert_eq!(header.kid.unwrap(), "1KSF3g".to_string());
-        assert_eq!(header.alg, Algorithm::RS256);
     }
 
     #[test]
